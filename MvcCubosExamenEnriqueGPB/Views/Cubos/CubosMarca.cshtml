@@ -1,0 +1,65 @@
+﻿@model IEnumerable<MvcCubosExamenEnriqueGPB.Models.Cubo>
+
+@{
+    ViewData["Title"] = "CubosMarca";
+}
+
+<h1>CubosMarca</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form method="post">
+    <label>Introduce Marca</label>
+    <input type="text" name="marca" class="form-control" />
+    <button class="btn btn-success">Buscar</button>
+</form>
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdCubo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nonbre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Marca)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Imagen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Precio)
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdCubo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nonbre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Marca)
+                    </td>
+                    <td>
+                        <img src="@item.Imagen" style="width:150px; height:auto" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Precio)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
